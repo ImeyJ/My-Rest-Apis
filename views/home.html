@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
-
-<html><head>
+<html lang="en">
+<head>
 
 <title> Avlez-API's </title>
 
 <meta charset="UTF-8"> 
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <meta name="robots" content="all"> 
 
@@ -27,772 +28,201 @@
 
 <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"> </script><br><br><br>
 
-<table height="100%" width="100%">
-
-  <td align="center">
-
-        <div class="time">
-
-        <span id="jam">00</span> : 
-
-        <span id="menit">00</span> : 
-
-        <span id="detik">00</span> &nbsp;
-
-        <span id="locale">WIB</span>
-
-      </div>
-
-      <div id="sayings">Ucapan</div>
-
+  <!-- Link to the external CSS file for styling -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- jQuery library for DOM manipulation -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Link to the external JavaScript file for additional scripts -->
+  <script src="js/scripts.js"></script>
 </head>
+<body>
 
-<body oncontextmenu='return false;' onkeydown='return false;' onmousedown='return false;'> 
+  <!-- Icon menu container -->
+  <ul class="menu">
+    <!-- Menu toggle button -->
+    <div class="menuToggle"><ion-icon name="add-outline"></ion-icon></div>
+    <!-- Menu items with icons and colors -->
+    <li style="--i: 0; --clr: #ff2972">
+      <a href="/api"><ion-icon name="home-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 1; --clr: #fee800">
+      <a href="#"><ion-icon name="settings-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 2; --clr: #04fc43">
+      <a href="#"><ion-icon name="mail-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 3; --clr: #fe00f1">
+      <a href="#"><ion-icon name="key-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 4; --clr: #00b0fe">
+      <a href="#"><ion-icon name="camera-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 5; --clr: #fea600">
+      <a href="#"><ion-icon name="game-controller-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 6; --clr: #a529ff">
+      <a href="#"><ion-icon name="person-outline"></ion-icon></a>
+    </li>
+    <li style="--i: 7; --clr: #01bdab">
+      <a href="#"><ion-icon name="videocam-outline"></ion-icon></a>
+    </li>
+  </ul>
 
-<script type="text/javascript">
+  <!-- Audio elements for sound effects -->
+  <audio id="toggleSound">
+    <source src="https://k.top4top.io/m_3217x1gbe0.mp3" type="audio/mpeg">
+    <source src="https://top4top.io/downloadf-3217wby4v1-ogg.html" type="audio/ogg">
+  </audio>
 
-function mischandler(){
+  <audio id="openSound">
+    <source src="https://l.top4top.io/m_3217fcipj0.mp3" type="audio/mpeg">
+    <source src="https://top4top.io/downloadf-3217s0vzv1-ogg.html" type="audio/ogg">
+  </audio>
 
-return false;
+  <audio id="hoverSound">
+    <source src="https://i.top4top.io/m_3217qxfvn0.mp3" type="audio/mpeg">
+    <source src="https://top4top.io/downloadf-32170aojm1-ogg.html" type="audio/ogg">
+  </audio>
 
-}
+<audio autoplay="true" src="https://j.top4top.io/m_1772xeikf9.mp3"></audio>
 
-function mousehandler(e){
+  <!-- JavaScript code to handle menu toggle and hover sounds -->
+  <script>
+    $(document).ready(function() {
+      var toggleSound = $("#toggleSound")[0];
+      var openSound = $("#openSound")[0];
+      var hoverSound = $("#hoverSound")[0];
 
-var myevent = (isNS) ? e : event;
+      let menuToggle = document.querySelector(".menuToggle");
+      let menu = document.querySelector(".menu");
 
-var eventbutton = (isNS) ? myevent.which : myevent.button;
+      menuToggle.onclick = function () {
+        menu.classList.toggle("active");
+        toggleSound.currentTime = 0; // Reset the audio to start from the beginning
+        toggleSound.play();
+        if (menu.classList.contains("active")) {
+          openSound.currentTime = 0; // Reset the audio to start from the beginning
+          openSound.play();
+        }
+      };
 
-if((eventbutton==2)||(eventbutton==3)) return false;
+      $("a").mouseenter(function() {
+        hoverSound.currentTime = 0; // Reset the audio to start from the beginning
+        hoverSound.play();
+      });
+    });
+  </script>
 
-}
-
-document.oncontextmenu = mischandler;
-
-document.onmousedown = mousehandler;
-
-document.onmouseup = mousehandler;
-
-var isCtrl = false;
-
-    document.onkeyup=function(e)
-
-    {
-
-    if(e.which == 17)
-
-    isCtrl=false;
-
-    }
-
-    document.onkeydown=function(e)
-
-    {
-
-    if(e.which == 17)
-
-    isCtrl=true;
-
-    if((e.which == 85) || (e.which == 67) && isCtrl == true)
-
-    {
-
-    return false;
-
-    }
-
-    }
-
-function details() {window.open(""); window.open("");}
-
-</script>
-
+  <!-- Ionicons for menu icons -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
 <style type="text/css">
-
-@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Grenze+Gotisch:wght@900&family=Jolly+Lodger&family=New+Rocker&display=swap');
-
 * {
-
-   margin: 0;
-
-   padding: 0;
-
-}
-
-   
-
-   body {
-
- font-family: 'New Rocker',cursive;
-
-background: black;
-
-background-size: cover;
-
--webkit-background-size: cover; background-position: center;
-
-width: 100%; height: 100%; }
-
-.blink {
-
-font-family: 'New Rocker',cursive;
-
--webkit-animation-name: zeeone;
-
--webkit-animation-duration: 2s;
-
--webkit-animation-timing-function: linear;
-
--webkit-animation-iteration-count: infinite;
-
--moz-animation-name: zeeone;
-
--moz-animation-duration: 1s;
-
--moz-animation-timing-function: linear;
-
--moz-animation-iteration-count: infinite;
-
- animation-name: zeeone;
-
- animation-duration: 1s;
-
- animation-timing-function: linear;
-
- animation-iteration-count: infinite;
-
-}
-
-@-moz-keyframes zeeone {  
-
- 0% { opacity: 1.0; }
-
- 50% { opacity: 0.0; }
-
- 100% { opacity: 1.0; }
-
- }
-
-@-webkit-keyframes zeeone {  
-
- 0% { opacity: 1.0; }
-
- 50% { opacity: 0.0; }
-
- 100% { opacity: 1.0; }
-
- }
-
-@keyframes zeeone {  
-
- 0% { opacity: 1.0; }
-
- 50% { opacity: 0.0; }
-
- 100% { opacity: 1.0; }
-
- }
-
- .text-success {
-
-   color: #fff;
-
-   font-size: 25px;
-
-   font-family: 'Grenze Gotisch', cursive;
-
- }
-
- h2 {
-
- color: black;
-
-  text-shadow: 0px 0px 12px red, -1px 0px red, 0px 1px red, 1px 0px red, 0px -1px red;
-
- align: center;
-
- text-size: 7px;
-
- font-family: 'Grenze Gotisch',cursive;
-
- }
-
- .image {
-
- position: top;
-
- margin: 0;
-
- margin-top: 15%;
-
- }
-
- .two {
-
- color: red;
-
- }
-
- .one {
-
- color: white;
-
- }
-
- #back  { 
-
- border-radius: 5px;
-
- -webkit-filter-box: drop-shadow(0px 1px 0px red);
-
- -webkit-filter: drop-shadow(0px 0px 7px red); 
-
- filter: drop-shadow(0px 0px 7px red); 
-
- }
-
- p {
-
- padding: 0;
-
- padding-bottom: 11%;
-
- position: center;
-
- text-align: center;
-
- font-size: 8vmin;
-
- letter-spacing: 2px;
-
- background: linear-gradient(90deg, #000, #fff, red, #000);
-
- background-size: 85% 100%;
-
- background-repeat: no-repeat;
-
- background-clip: text;
-
- -webkit-background-clip: text;
-
- -webkit-text-fill-color: transparent;
-
- animation: ONE 5s linear infinite;
-
- }
-
- 
-
- @keyframes ONE {
-
- 0% {
-
- background-position-x: -500%;
-
- }
-
- 
-
- 100% {
-
- background-position-x: 500%;
-
- }
-
- }
-
-#jam, #menit, #detik { 
-
-  color: #fff;
-
-  font-size: 50px;
-
-}
-
-#locale {
-
-  color: red;
-
-  font-size: 50px;
-
-}
-
-#one {
-
-  color: #fff;
-
-  font-size: 30px;
-
-}
-
-</style>
-
-<center>
-
-<!--<img class="image" src="https://d.top4top.io/s_2120itmjt0.jpg" height="860" width="709"><br>-->
-
-<div class="blink">
-
-<div id="back"><font size="20">
-
-<b>
-
-  <span class="one">REST API</span><span class="two"> AVLEZ </span>
-
-  </b>
-
-</font>
-
-</div>
-
-</div>
-
-<br>
-
-<!--<a id="one" href="/docs">OPEN DOCS</a>-->
-
-<script type="text/javascript">
-
-Sayings = "";
-
-			var now = new Date();			var hours = now.getHours();
-
-			if (hours >= 16 && hours <= 17){
-
-			Sayings += "<span class='text-success'>Sholat Maghrib Bro</span>"
-
-			} else if (hours >= 18 || hours <= 2){
-
-			Sayings += "<span class='text-success'>Selamat Malam</span>"
-
-			} else if (hours >= 3 && hours <= 10){
-
-			Sayings += "<span class='text-success'>Selamat Pagi</span>"
-
-			} else if (hours >= 11 && hours <= 14){
-
-			Sayings += "<span class='text-success'>Selamat Siang</span>"
-
-			} else if (hours >= 13 && hours <= 15){
-
-			Sayings += "<span class='text-success'>Selamat Sore</span>"
-
-			}
-
-document.getElementById("sayings").innerHTML = Sayings 
-window.setTimeout("waktu()", 1000);
-
- 
-
-	function waktu() {
-
-		var waktu = new Date();
-
-		setTimeout("waktu()", 1000);
-
-		document.getElementById("jam").innerHTML = waktu.getHours();
-
-		document.getElementById("menit").innerHTML = waktu.getMinutes();
-
-		document.getElementById("detik").innerHTML = waktu.getSeconds();
-
-	}
-
-    </script>
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #161616 url(https://b.top4top.io/p_3217aw6ft0.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .menu {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu li {
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform: rotate(0deg) translateX(100px);
+    transform-origin: 130px;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+  }
+  .menu.active li {
+    transform: rotate(calc(360deg / 8 * var(--i)));
+  }
+  .menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 50%;
+    transform: rotate(calc(360deg / -8 * var(--i)));
+    transition: 1s;
+    color: transparent;
+    transition-delay: 0.5s;
+    filter: drop-shadow(0 0 2px var(--clr));
+  }
+  .menu.active a {
+    color: var(--clr);
+  }
+  .menu a::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--clr);
+    transform: rotate(calc(90deg * var(--i))) translate(0, 25px);
+    transition: width 0.5s, height 0.5s, transform 0.5s;
+    transition-delay: 0.5s, 1s, 1.5s;
+  }
+  .menu.active a::before {
+    width: 50px;
+    height: 50px;
+    background: #161616;
+    border: 2px solid var(--clr);
+    transform: rotate(calc(0 * var(--i)));
+    transition: transform 0.5s, height 0.5s, width 0.5s;
+    transition-delay: 0.5s, 1.5s, 1.5s;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 5px var(--clr));
+    rotate: 135deg;
+  }
+  .menu.active li:hover a::before {
+    background: var(--clr);
+  }
+  .menu.active li:hover a ion-icon {
+    color: #161616;
+  }
   
-    <!--<audio autoplay="true" src="https://j.top4top.io/m_1772xeikf9.mp3"></audio>-->
-
-    <b><h2 id="one"><font size="50"><marquee width="70%">Made With ❤️ By Avlez</marquee></h2></b>
-
-<div class="sp-container">
-    <div class="sp-content">
-      <div class="sp-globe"></div>
-     <h2 class="frame-1">Selamat</h2>
-      <h2 class="frame-2">Datang</h2>
-      <h2 class="frame-3">Di Website</h2>
-      <h2 class="frame-4">Rest Api</h2>
-      <h2 class="frame-5">
-        <span>Avlez</span>
-        <span>Rest</span>
-        <span>API's</span>
-      </h2>
-      <a class="sp-circle-link" href="/api">OPEN</a>
-    </div>
-  </div>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Barlow');
-    body {
-      background: #310404 url(https://i.ibb.co/7vjZZ4T/kapital.jpg) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      font-family: 'Barlow', sans-serif;
-    }
-    
-    .container {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    a {
-      text-decoration: none;
-    }
-    
-    h1.main,
-    p.demos {
-      -webkit-animation-delay: 18s;
-      -moz-animation-delay: 18s;
-      -ms-animation-delay: 18s;
-      animation-delay: 18s;
-    }
-    
-    .sp-container {
-      position: fixed;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-      background: -moz-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-      background: -ms-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-      background: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-    }
-    
-    .sp-content {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0px;
-      top: 0px;
-      z-index: 1000;
-    }
-    
-    .sp-container h2 {
-      position: absolute;
-      top: 50%;
-      line-height: 100px;
-      height: 90px;
-      margin-top: -50px;
-      font-size: 90px;
-      width: 100%;
-      text-align: center;
-      color: transparent;
-      -webkit-animation: blurFadeInOut 3s ease-in backwards;
-      -moz-animation: blurFadeInOut 3s ease-in backwards;
-      -ms-animation: blurFadeInOut 3s ease-in backwards;
-      animation: blurFadeInOut 3s ease-in backwards;
-    }
-    
-    .sp-container h2.frame-1 {
-      -webkit-animation-delay: 0s;
-      -moz-animation-delay: 0s;
-      -ms-animation-delay: 0s;
-      animation-delay: 0s;
- 
-    }
-    
-    .sp-container h2.frame-2 {
-      -webkit-animation-delay: 3s;
-      -moz-animation-delay: 3s;
-      -ms-animation-delay: 3s;
-      animation-delay: 3s;
-    }
-    
-    .sp-container h2.frame-3 {
-      -webkit-animation-delay: 6s;
-      -moz-animation-delay: 6s;
-      -ms-animation-delay: 6s;
-      animation-delay: 6s;
-    }
-    
-    .sp-container h2.frame-4 {
-      font-size: 200px;
-      -webkit-animation-delay: 9s;
-      -moz-animation-delay: 9s;
-      -ms-animation-delay: 9s;
-      animation-delay: 9s;
-    }
-    
-    .sp-container h2.frame-5 {
-      -webkit-animation: none;
-      -moz-animation: none;
-      -ms-animation: none;
-      animation: none;
-      color: transparent;
-      text-shadow: 0px 0px 1px #fff;
-    }
-    
-    .sp-container h2.frame-5 span {
-      -webkit-animation: blurFadeIn 3s ease-in 12s backwards;
-      -moz-animation: blurFadeIn 1s ease-in 12s backwards;
-      -ms-animation: blurFadeIn 3s ease-in 12s backwards;
-      animation: blurFadeIn 3s ease-in 12s backwards;
-      color: transparent;
-      text-shadow: 0px 0px 1px #fff;
-    }
-    
-    .sp-container h2.frame-5 span:nth-child(2) {
-      -webkit-animation-delay: 13s;
-      -moz-animation-delay: 13s;
-      -ms-animation-delay: 13s;
-      animation-delay: 13s;
-    }
-    
-    .sp-container h2.frame-5 span:nth-child(3) {
-      -webkit-animation-delay: 14s;
-      -moz-animation-delay: 14s;
-      -ms-animation-delay: 14s;
-      animation-delay: 14s;
-    }
-    
-    .sp-globe {
-      position: absolute;
-      width: 282px;
-      height: 273px;
-      left: 50%;
-      top: 50%;
-      margin: -137px 0 0 -141px;
-      background: transparent url(http://web-sonick.zz.mu/images/sl/globe.png) no-repeat top left;
-      -webkit-animation: fadeInBack 3.6s linear 14s backwards;
-      -moz-animation: fadeInBack 3.6s linear 14s backwards;
-      -ms-animation: fadeInBack 3.6s linear 14s backwards;
-      animation: fadeInBack 3.6s linear 14s backwards;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-      filter: alpha(opacity=30);
-      opacity: 0.3;
-      -webkit-transform: scale(5);
-      -moz-transform: scale(5);
-      -o-transform: scale(5);
-      -ms-transform: scale(5);
-      transform: scale(5);
-    }
-    
-    .sp-circle-link {
-      position: absolute;
-      left: 50%;
-      bottom: 100px;
-      margin-left: -50px;
-      text-align: center;
-      line-height: 100px;
-      width: 100px;
-      height: 100px;
-      background: #fff;
-      color: #3f1616;
-      font-size: 25px;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      -webkit-animation: fadeInRotate 1s linear 16s backwards;
-      -moz-animation: fadeInRotate 1s linear 16s backwards;
-      -ms-animation: fadeInRotate 1s linear 16s backwards;
-      animation: fadeInRotate 1s linear 16s backwards;
-      -webkit-transform: scale(1) rotate(0deg);
-      -moz-transform: scale(1) rotate(0deg);
-      -o-transform: scale(1) rotate(0deg);
-      -ms-transform: scale(1) rotate(0deg);
-      transform: scale(1) rotate(0deg);
-    }
-    
-    .sp-circle-link:hover {
-      background: #85373b;
-      color: #fff;
-    }
-    /**/
-    
-    @-webkit-keyframes blurFadeInOut {
-      0% {
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -webkit-transform: scale(1.3);
-      }
-      20%,
-      75% {
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -webkit-transform: scale(1);
-      }
-      100% {
-        opacity: 0;
-        text-shadow: 0px 0px 50px #fff;
-        -webkit-transform: scale(0);
-      }
-    }
-    
-    @-webkit-keyframes blurFadeIn {
-      0% {
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -webkit-transform: scale(1.3);
-      }
-      50% {
-        opacity: 0.5;
-        text-shadow: 0px 0px 10px #fff;
-        -webkit-transform: scale(1.1);
-      }
-      100% {
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -webkit-transform: scale(1);
-      }
-    }
-    
-    @-webkit-keyframes fadeInBack {
-      0% {
-        opacity: 0;
-        -webkit-transform: scale(0);
-      }
-      50% {
-        opacity: 0.4;
-        -webkit-transform: scale(2);
-      }
-      100% {
-        opacity: 0.2;
-        -webkit-transform: scale(5);
-      }
-    }
-    
-    @-webkit-keyframes fadeInRotate {
-      0% {
-        opacity: 0;
-        -webkit-transform: scale(0) rotate(360deg);
-      }
-      100% {
-        opacity: 1;
-        -webkit-transform: scale(1) rotate(0deg);
-      }
-    }
-    /**/
-    
-    @-moz-keyframes blurFadeInOut {
-      0% {
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -moz-transform: scale(1.3);
-      }
-      20%,
-      75% {
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -moz-transform: scale(1);
-      }
-      100% {
-        opacity: 0;
-        text-shadow: 0px 0px 50px #fff;
-        -moz-transform: scale(0);
-      }
-    }
-    
-    @-moz-keyframes blurFadeIn {
-      0% {
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -moz-transform: scale(1.3);
-      }
-      100% {
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -moz-transform: scale(1);
-      }
-    }
-    
-    @-moz-keyframes fadeInBack {
-      0% {
-        opacity: 0;
-        -moz-transform: scale(0);
-      }
-      50% {
-        opacity: 0.4;
-        -moz-transform: scale(2);
-      }
-      100% {
-        opacity: 0.2;
-        -moz-transform: scale(5);
-      }
-    }
-    
-    @-moz-keyframes fadeInRotate {
-      0% {
-        opacity: 0;
-        -moz-transform: scale(0) rotate(360deg);
-      }
-      100% {
-        opacity: 1;
-        -moz-transform: scale(1) rotate(0deg);
-      }
-    }
-    /**/
-    
-    @keyframes blurFadeInOut {
-      0% {
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        transform: scale(1.3);
-      }
-      20%,
-      75% {
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 0;
-        text-shadow: 0px 0px 50px #fff;
-        transform: scale(0);
-      }
-    }
-    
-    @keyframes blurFadeIn {
-      0% {
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        transform: scale(1.3);
-      }
-      50% {
-        opacity: 0.5;
-        text-shadow: 0px 0px 10px #fff;
-        transform: scale(1.1);
-      }
-      100% {
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        transform: scale(1);
-      }
-    }
-    
-    @keyframes fadeInBack {
-      0% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      50% {
-        opacity: 0.4;
-        transform: scale(2);
-      }
-      100% {
-        opacity: 0.2;
-        transform: scale(5);
-      }
-    }
-    
-    @keyframes fadeInRotate {
-      0% {
-        opacity: 0;
-        transform: scale(0) rotate(360deg);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-      }
-    }
+  .menuToggle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 32px;
+    transition: 1.5s;
+  }
+  .menu.active .menuToggle {
+    transform: rotate(315deg);
+  }
 </style>
-      </body>
-
-</td>
-
-</table>
-
+</body>
 </html>
